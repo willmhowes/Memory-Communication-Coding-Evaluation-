@@ -24,7 +24,7 @@ int main () {
     int32_t ct = 0;
 
     // perform trials
-    for(int i = 0; i < NUM_TRIALS; i++) {
+    for(int trial = 0; trial < NUM_TRIALS; trial++) {
         char* buffer = (char*)malloc(sizeof(char) * buffer_size);
         int32_t* iterations = generate_random_list(N_ITERS,buffer_size);
         volatile char copy_dest = 0;
@@ -46,8 +46,8 @@ int main () {
         printf("%8d | %8.5fns\n",buffer_size,avg);
 
         // store results
-        results[i] = (double)buffer_size;
-        results[i+NUM_TRIALS] = avg;
+        results[trial] = (double)buffer_size;
+        results[trial+NUM_TRIALS] = avg;
 
         // increase buffer size for next trial
         // (there ends up being a little less than 20 trials at each order of magnitude)

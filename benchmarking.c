@@ -21,7 +21,6 @@ int main () {
     printf("%8s | %9s\n","Buffer","Average");
     printf("%8s | %9s\n","Size","Time");
     printf("---------------------\n");
-    int32_t ct = 0;
 
     // perform trials
     for(int trial = 0; trial < NUM_TRIALS; trial++) {
@@ -54,7 +53,6 @@ int main () {
         int32_t power_of_10;
         power_of_10 = (int)log10( buffer_size );
         buffer_size = buffer_size + (pow(10,power_of_10)/2);
-        ct++;
 
         free(buffer);
         free(iterations);

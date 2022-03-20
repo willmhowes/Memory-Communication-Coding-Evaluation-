@@ -1,5 +1,6 @@
 CXX=gcc
-CXX_FLAGS=-Wall -Wextra -pedantic -std=c11 -O3 -pthread
+CXX_FLAGS=-Wall -Wextra -pedantic -std=c11 -O3
+C++_FLAGS=-Wall -Wextra -pedantic -std=c++11 -O3 -pthread
 .PHONY: all clean
 TARGETS=benchmarking barriers
 
@@ -14,10 +15,10 @@ benchmarking: benchmarking.o
 
 barriers.o: barriers.hh
 barriers.o: barriers.cc
-	$(CXX) $(CXX_FLAGS) -c -o $@ $<
+	g++ $(C++_FLAGS) -c -o $@ $<
 
 barriers: barriers.o
-	$(CXX) $(CXX_FLAGS) -o $@ $^
+	g++ $(C++_FLAGS) -o $@ $^
 
 clean:
 	rm -f *~ *.o $(TARGETS)
